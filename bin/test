@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#
+# Run Codeception wpunit tests inside the wp container.
+#
+# Usage:
+#   ./bin/test                    # run all wpunit tests
+#   ./bin/test -- --filter Greet  # pass extra flags to codecept
+#
+set -euo pipefail
+
+DC="docker compose"
+
+# Forward any extra arguments (e.g. --filter)
+EXTRA_ARGS="${*}"
+
+$DC exec wp bash -c "cd /app && vendor/bin/codecept run wpunit -v ${EXTRA_ARGS}"
