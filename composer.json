@@ -1,0 +1,29 @@
+{
+    "name": "developer/wp-testing-container",
+    "description": "WordPress plugin testing container with Codeception",
+    "type": "project",
+    "require-dev": {
+        "codeception/codeception": "^5",
+        "codeception/module-asserts": "^3",
+        "codeception/module-cli": "^2",
+        "codeception/module-db": "^3"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "codeception/*": true
+        }
+    },
+    "scripts": {
+        "test:setup": "./bin/test-setup",
+        "test:wpunit": "docker compose exec wp vendor/bin/codecept run wpunit -v",
+        "test": [
+            "@test:setup",
+            "@test:wpunit"
+        ]
+    }
+}
