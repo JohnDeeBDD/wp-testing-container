@@ -1,13 +1,14 @@
 services:
   db:
-    image: mariadb:10.11
+    image: yobasystems/alpine-mariadb:latest
+    network_mode: host
     environment:
-      MARIADB_ROOT_PASSWORD: root
-      MARIADB_DATABASE: wordpress_test
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: wordpress_test
     tmpfs:
       - /var/lib/mysql          # DB lives entirely in RAM – fast & disposable
     healthcheck:
-      test: ["CMD", "mariadb-admin", "ping", "-h", "127.0.0.1", "-u", "root", "-proot"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-u", "root", "-proot"]
       interval: 3s
       retries: 10
       start_period: 10s
@@ -15,6 +16,15 @@ services:
   wp:
     build:
       context: ./docker/php
+      network: host
+      args:
+        HTTP_PROXY: ${HTTP_PROXY:-}
+        HTTPS_PROXY: ${HTTPS_PROXY:-}
+        http_proxy: ${http_proxy:-}
+        https_proxy: ${https_proxy:-}
+        NO_PROXY: ${NO_PROXY:-}
+        no_proxy: ${no_proxy:-}
+    network_mode: host
     depends_on:
       db:
         condition: service_healthy
@@ -22,11 +32,11 @@ services:
       - .:/app                  # project root
       - wp_core:/var/www/html   # WordPress core files
     environment:
-      DB_HOST: db
+      DB_HOST: 127.0.0.1
       DB_NAME: wordpress_test
       DB_USER: root
       DB_PASS: root
-      WP_URL: http://wordpress
+      WP_URL: http://127.0.0.1:8080
       WP_TITLE: "Test Site"
       WP_ADMIN_USER: admin
       WP_ADMIN_PASS: admin
@@ -34,6 +44,8 @@ services:
       PLUGIN_SLUG: my-plugin
       PLUGIN_DIR: /app/plugin
       WP_CLI_PHP_ARGS: "-d memory_limit=512M"
+      CHROME_BIN: /usr/bin/chromium-browser
+      CHROMEDRIVER_PORT: 9515
       # Pass through proxy from host (empty string if unset — harmless)
       HTTP_PROXY: ${HTTP_PROXY:-}
       HTTPS_PROXY: ${HTTPS_PROXY:-}
@@ -41,29 +53,6 @@ services:
       https_proxy: ${https_proxy:-}
       NO_PROXY: ${NO_PROXY:-}
       no_proxy: ${no_proxy:-}
-
-  # Apache web server — serves WordPress over HTTP for acceptance tests
-  wordpress:
-    image: wordpress:php8.2-apache
-    depends_on:
-      db:
-        condition: service_healthy
-    volumes:
-      - .:/app                  # project root (plugin symlink target)
-      - wp_core:/var/www/html   # shared WordPress core files
-    environment:
-      WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_NAME: wordpress_test
-      WORDPRESS_DB_USER: root
-      WORDPRESS_DB_PASSWORD: root
-
-  # Headless Chromium via Selenium — browser for acceptance tests
-  chrome:
-    image: selenium/standalone-chromium:latest
-    shm_size: 2g               # Chrome needs shared memory for tabs
-    environment:
-      SE_NODE_MAX_SESSIONS: 3
-      SE_START_XVFB: "false"   # headless, no virtual framebuffer needed
 
 volumes:
   wp_core:

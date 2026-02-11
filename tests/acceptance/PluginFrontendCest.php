@@ -10,7 +10,6 @@ class PluginFrontendCest
     {
         $I->wantTo('verify the WordPress homepage loads');
         $I->amOnPage('/');
-        $I->seeResponseCodeIs(200);
         $I->see('Test Site');
     }
 

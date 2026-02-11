@@ -19,13 +19,13 @@ $DC up -d --build --wait || die "docker compose up failed"
 
 # ---------- 2. Install runtime packages (Alpine apk, idempotent) ----------
 log "Installing runtime packages inside wp container …"
-$DC exec wp sh -c 'apk add --no-cache mariadb-client bash git unzip 2>/dev/null || true'
+$DC exec wp sh -c 'apk add --no-cache mariadb-client bash git unzip curl 2>/dev/null || true'
 
 # ---------- 3. Wait for DB inside wp container ----------
 log "Waiting for DB to be reachable from the wp container …"
 $DC exec wp bash -c '
   for i in $(seq 1 30); do
-    mariadb --skip-ssl -h "$DB_HOST" -u "$DB_USER" -p"$DB_PASS" -e "SELECT 1" &>/dev/null && exit 0
+    mysql -h "$DB_HOST" -u "$DB_USER" -p"$DB_PASS" -e "SELECT 1" &>/dev/null && exit 0
     sleep 1
   done
   echo "DB not reachable after 30s" >&2; exit 1
@@ -34,7 +34,7 @@ $DC exec wp bash -c '
 # ---------- 4. (Re)create the test database ----------
 log "Dropping and recreating database …"
 $DC exec wp bash -c '
-  mariadb --skip-ssl -h "$DB_HOST" -u "$DB_USER" -p"$DB_PASS" \
+  mysql -h "$DB_HOST" -u "$DB_USER" -p"$DB_PASS" \
     -e "DROP DATABASE IF EXISTS \`$DB_NAME\`; CREATE DATABASE \`$DB_NAME\`;"
 '
 
@@ -82,26 +82,41 @@ $DC exec wp bash -c '
   wp plugin activate "$PLUGIN_SLUG" --path=/var/www/html --allow-root
 '
 
-# ---------- 9. Wait for WordPress HTTP (Apache container) ----------
+# ---------- 9. Start PHP built-in server (serves WordPress on :8080) ----------
+log "Starting PHP built-in web server on :8080 …"
+$DC exec -d wp bash -c '
+  kill $(cat /tmp/php-server.pid 2>/dev/null) 2>/dev/null || true
+  php -S 0.0.0.0:8080 -t /var/www/html &>/tmp/php-server.log &
+  echo $! > /tmp/php-server.pid
+'
+
+# ---------- 10. Start ChromeDriver (WebDriver on :9515) ----------
+log "Starting ChromeDriver on :9515 …"
+$DC exec -d wp bash -c '
+  kill $(cat /tmp/chromedriver.pid 2>/dev/null) 2>/dev/null || true
+  chromedriver --port=9515 --allowed-ips="" &>/tmp/chromedriver.log &
+  echo $! > /tmp/chromedriver.pid
+'
+
+# ---------- 11. Wait for WordPress HTTP ----------
 log "Waiting for WordPress to respond over HTTP …"
 $DC exec wp bash -c '
-  apk add --no-cache curl 2>/dev/null || true
-  for i in $(seq 1 30); do
-    if curl -sfo /dev/null http://wordpress/ 2>/dev/null; then
+  for i in $(seq 1 15); do
+    if curl -sfo /dev/null http://127.0.0.1:8080/ 2>/dev/null; then
       exit 0
     fi
     sleep 1
   done
-  echo "WordPress HTTP not reachable after 30s" >&2; exit 1
+  echo "WordPress HTTP not reachable after 15s" >&2; exit 1
 ' || die "WordPress never became reachable over HTTP"
 
-# ---------- 10. Install Composer deps (if needed) ----------
+# ---------- 12. Install Composer deps (if needed) ----------
 log "Installing Composer dependencies …"
 $DC exec wp bash -c '
   cd /app && composer install --no-interaction --prefer-dist
 '
 
-# ---------- 11. Build Codeception support classes ----------
+# ---------- 13. Build Codeception support classes ----------
 log "Building Codeception actors …"
 $DC exec wp bash -c '
   cd /app && vendor/bin/codecept build
