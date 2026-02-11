@@ -1,14 +1,14 @@
 services:
   db:
-    image: mariadb:10.11
+    image: yobasystems/alpine-mariadb:latest
     network_mode: host
     environment:
-      MARIADB_ROOT_PASSWORD: root
-      MARIADB_DATABASE: wordpress_test
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: wordpress_test
     tmpfs:
       - /var/lib/mysql          # DB lives entirely in RAM – fast & disposable
     healthcheck:
-      test: ["CMD", "mariadb-admin", "ping", "-h", "127.0.0.1", "-u", "root", "-proot"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-u", "root", "-proot"]
       interval: 3s
       retries: 10
       start_period: 10s
@@ -17,6 +17,13 @@ services:
     build:
       context: ./docker/php
       network: host
+      args:
+        HTTP_PROXY: ${HTTP_PROXY:-}
+        HTTPS_PROXY: ${HTTPS_PROXY:-}
+        http_proxy: ${http_proxy:-}
+        https_proxy: ${https_proxy:-}
+        NO_PROXY: ${NO_PROXY:-}
+        no_proxy: ${no_proxy:-}
     network_mode: host
     depends_on:
       db:
@@ -24,13 +31,12 @@ services:
     volumes:
       - .:/app                  # project root
       - wp_core:/var/www/html   # WordPress core files
-      - /etc/ssl/certs/ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
     environment:
       DB_HOST: 127.0.0.1
       DB_NAME: wordpress_test
       DB_USER: root
       DB_PASS: root
-      WP_URL: http://localhost
+      WP_URL: http://127.0.0.1:8080
       WP_TITLE: "Test Site"
       WP_ADMIN_USER: admin
       WP_ADMIN_PASS: admin
@@ -38,6 +44,8 @@ services:
       PLUGIN_SLUG: my-plugin
       PLUGIN_DIR: /app/plugin
       WP_CLI_PHP_ARGS: "-d memory_limit=512M"
+      CHROME_BIN: /usr/bin/chromium-browser
+      CHROMEDRIVER_PORT: 9515
       # Pass through proxy from host (empty string if unset — harmless)
       HTTP_PROXY: ${HTTP_PROXY:-}
       HTTPS_PROXY: ${HTTPS_PROXY:-}

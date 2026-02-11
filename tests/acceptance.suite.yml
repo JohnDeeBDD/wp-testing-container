@@ -1,0 +1,22 @@
+actor: AcceptanceTester
+bootstrap: _bootstrap.php
+modules:
+  enabled:
+    - WebDriver:
+        url: 'http://127.0.0.1:8080'
+        browser: chrome
+        host: 127.0.0.1
+        port: 9515
+        restart: true
+        window_size: 1920x1080
+        path: ''
+        capabilities:
+          goog:chromeOptions:
+            binary: /usr/bin/chromium-browser
+            args:
+              - "--headless=new"
+              - "--no-sandbox"
+              - "--disable-gpu"
+              - "--disable-dev-shm-usage"
+              - "--disable-software-rasterizer"
+    - Asserts
