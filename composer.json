@@ -6,7 +6,8 @@
         "codeception/codeception": "^5",
         "codeception/module-asserts": "^3",
         "codeception/module-cli": "^2",
-        "codeception/module-db": "^3"
+        "codeception/module-db": "^3",
+        "codeception/module-webdriver": "^4"
     },
     "autoload-dev": {
         "psr-4": {
@@ -21,9 +22,11 @@
     "scripts": {
         "test:setup": "./bin/test-setup",
         "test:wpunit": "docker compose exec wp vendor/bin/codecept run wpunit -v",
+        "test:acceptance": "docker compose exec wp vendor/bin/codecept run acceptance -v",
         "test": [
             "@test:setup",
-            "@test:wpunit"
+            "@test:wpunit",
+            "@test:acceptance"
         ]
     }
 }

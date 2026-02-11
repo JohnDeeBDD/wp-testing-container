@@ -82,13 +82,26 @@ $DC exec wp bash -c '
   wp plugin activate "$PLUGIN_SLUG" --path=/var/www/html --allow-root
 '
 
-# ---------- 9. Install Composer deps (if needed) ----------
+# ---------- 9. Wait for WordPress HTTP (Apache container) ----------
+log "Waiting for WordPress to respond over HTTP …"
+$DC exec wp bash -c '
+  apk add --no-cache curl 2>/dev/null || true
+  for i in $(seq 1 30); do
+    if curl -sfo /dev/null http://wordpress/ 2>/dev/null; then
+      exit 0
+    fi
+    sleep 1
+  done
+  echo "WordPress HTTP not reachable after 30s" >&2; exit 1
+' || die "WordPress never became reachable over HTTP"
+
+# ---------- 10. Install Composer deps (if needed) ----------
 log "Installing Composer dependencies …"
 $DC exec wp bash -c '
   cd /app && composer install --no-interaction --prefer-dist
 '
 
-# ---------- 10. Build Codeception support classes ----------
+# ---------- 11. Build Codeception support classes ----------
 log "Building Codeception actors …"
 $DC exec wp bash -c '
   cd /app && vendor/bin/codecept build

@@ -1,0 +1,19 @@
+actor: AcceptanceTester
+bootstrap: _bootstrap.php
+modules:
+  enabled:
+    - WebDriver:
+        url: 'http://wordpress'
+        browser: chrome
+        host: chrome
+        port: 4444
+        restart: true
+        window_size: 1920x1080
+        capabilities:
+          goog:chromeOptions:
+            args:
+              - "--headless=new"
+              - "--no-sandbox"
+              - "--disable-gpu"
+              - "--disable-dev-shm-usage"
+    - Asserts

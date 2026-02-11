@@ -1,7 +1,6 @@
 services:
   db:
     image: mariadb:10.11
-    network_mode: host
     environment:
       MARIADB_ROOT_PASSWORD: root
       MARIADB_DATABASE: wordpress_test
@@ -16,21 +15,18 @@ services:
   wp:
     build:
       context: ./docker/php
-      network: host
-    network_mode: host
     depends_on:
       db:
         condition: service_healthy
     volumes:
       - .:/app                  # project root
       - wp_core:/var/www/html   # WordPress core files
-      - /etc/ssl/certs/ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
     environment:
-      DB_HOST: 127.0.0.1
+      DB_HOST: db
       DB_NAME: wordpress_test
       DB_USER: root
       DB_PASS: root
-      WP_URL: http://localhost
+      WP_URL: http://wordpress
       WP_TITLE: "Test Site"
       WP_ADMIN_USER: admin
       WP_ADMIN_PASS: admin
@@ -45,6 +41,29 @@ services:
       https_proxy: ${https_proxy:-}
       NO_PROXY: ${NO_PROXY:-}
       no_proxy: ${no_proxy:-}
+
+  # Apache web server — serves WordPress over HTTP for acceptance tests
+  wordpress:
+    image: wordpress:php8.2-apache
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - .:/app                  # project root (plugin symlink target)
+      - wp_core:/var/www/html   # shared WordPress core files
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: wordpress_test
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: root
+
+  # Headless Chromium via Selenium — browser for acceptance tests
+  chrome:
+    image: selenium/standalone-chromium:latest
+    shm_size: 2g               # Chrome needs shared memory for tabs
+    environment:
+      SE_NODE_MAX_SESSIONS: 3
+      SE_START_XVFB: "false"   # headless, no virtual framebuffer needed
 
 volumes:
   wp_core:
