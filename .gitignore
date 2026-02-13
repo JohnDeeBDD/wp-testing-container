@@ -1,6 +1,9 @@
 /vendor/
 tests/_output/*
 !tests/_output/.gitkeep
+!tests/_output/report.html
+!tests/_output/report.xml
+!tests/_output/test-report.txt
 .phpunit.result.cache
 *.cache
 .env

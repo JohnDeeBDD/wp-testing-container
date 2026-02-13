@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Tests.acceptance" tests="6" assertions="6" errors="0" failures="0" skipped="0" useless="0" time="8.538370">
+    <testcase name="shortcodeRendersOnPage" class="Tests\acceptance\HelloShortcodeCest" file="/home/user/wp-testing-container/tests/acceptance/HelloShortcodeCest.php" feature="verify the [HELLO] shortcode renders HELLO WORLD on a page" time="0.484339" assertions="1"/>
+    <testcase name="helloWorldTest" class="Tests\acceptance\HelloWorldCest" file="/home/user/wp-testing-container/tests/acceptance/HelloWorldCest.php" feature="see Hello World on the WordPress homepage" time="0.374122" assertions="1"/>
+    <testcase name="homepageLoads" class="Tests\acceptance\PluginFrontendCest" file="/home/user/wp-testing-container/tests/acceptance/PluginFrontendCest.php" feature="verify the WordPress homepage loads" time="0.371783" assertions="1"/>
+    <testcase name="adminLoginWorks" class="Tests\acceptance\PluginFrontendCest" file="/home/user/wp-testing-container/tests/acceptance/PluginFrontendCest.php" feature="log in to wp-admin" time="2.021871" assertions="1"/>
+    <testcase name="pluginAppearsOnPluginsPage" class="Tests\acceptance\PluginFrontendCest" file="/home/user/wp-testing-container/tests/acceptance/PluginFrontendCest.php" feature="verify the plugin is listed and active" time="2.652195" assertions="1"/>
+    <testcase name="bookPostTypeVisibleInAdmin" class="Tests\acceptance\PluginFrontendCest" file="/home/user/wp-testing-container/tests/acceptance/PluginFrontendCest.php" feature="verify the Book CPT menu appears in wp-admin" time="2.634061" assertions="1"/>
+  </testsuite>
+  <testsuite name="Tests.wpunit" tests="8" assertions="11" errors="0" failures="0" skipped="0" useless="0" time="0.063727">
+    <testcase name="testHelloShortcodeIsRegistered" class="Tests\wpunit\HelloShortcodeTest" file="/home/user/wp-testing-container/tests/wpunit/HelloShortcodeTest.php" time="0.024477" assertions="1"/>
+    <testcase name="testHelloShortcodeReturnsHelloWorld" class="Tests\wpunit\HelloShortcodeTest" file="/home/user/wp-testing-container/tests/wpunit/HelloShortcodeTest.php" time="0.001239" assertions="1"/>
+    <testcase name="testHelloShortcodeRendersViaDoShortcode" class="Tests\wpunit\HelloShortcodeTest" file="/home/user/wp-testing-container/tests/wpunit/HelloShortcodeTest.php" time="0.000678" assertions="1"/>
+    <testcase name="testPluginIsActive" class="Tests\wpunit\PluginActivationTest" file="/home/user/wp-testing-container/tests/wpunit/PluginActivationTest.php" time="0.001187" assertions="1"/>
+    <testcase name="testGreetReturnsExpectedString" class="Tests\wpunit\PluginActivationTest" file="/home/user/wp-testing-container/tests/wpunit/PluginActivationTest.php" time="0.000522" assertions="1"/>
+    <testcase name="testGreetWithEmptyName" class="Tests\wpunit\PluginActivationTest" file="/home/user/wp-testing-container/tests/wpunit/PluginActivationTest.php" time="0.000344" assertions="1"/>
+    <testcase name="testBookPostTypeIsRegistered" class="Tests\wpunit\PluginActivationTest" file="/home/user/wp-testing-container/tests/wpunit/PluginActivationTest.php" time="0.000400" assertions="1"/>
+    <testcase name="testCanInsertBookPost" class="Tests\wpunit\PluginActivationTest" file="/home/user/wp-testing-container/tests/wpunit/PluginActivationTest.php" time="0.034880" assertions="4"/>
+  </testsuite>
+</testsuites>

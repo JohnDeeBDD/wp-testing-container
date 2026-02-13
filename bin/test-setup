@@ -82,6 +82,18 @@ $DC exec wp bash -c '
   wp plugin activate "$PLUGIN_SLUG" --path=/var/www/html --allow-root
 '
 
+# ---------- 8b. Create a test page with the [HELLO] shortcode ----------
+log "Creating shortcode test page …"
+$DC exec wp bash -c '
+  wp post create \
+    --post_type=page \
+    --post_title="Shortcode Test" \
+    --post_content="[HELLO]" \
+    --post_status=publish \
+    --path=/var/www/html \
+    --allow-root
+'
+
 # ---------- 9. Start PHP built-in server (serves WordPress on :8080) ----------
 log "Starting PHP built-in web server on :8080 …"
 $DC exec -d wp bash -c '
