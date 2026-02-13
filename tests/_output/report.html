@@ -210,14 +210,14 @@
  <body>
    <ul id="toolbar-filter">
      <li> <a href="#" title="Show all" onClick="showAllScenarios()">◯</a></li>
-     <li> <a href="#" title="Successful" onClick="toggleScenarios('scenarioSuccess', this.parentElement)"><strong>✔</strong> 14</a></li>
+     <li> <a href="#" title="Successful" onClick="toggleScenarios('scenarioSuccess', this.parentElement)"><strong>✔</strong> 5</a></li>
      <li> <a href="#" title="Failed" onClick="toggleScenarios('scenarioFailed', this.parentElement)"><strong>✗</strong> 0</a></li>
      <li> <a href="#" title="Skipped" onClick="toggleScenarios('scenarioSkipped', this.parentElement)"><strong>S</strong> 0</a></li>
      <li> <a href="#" title="Incomplete" onClick="toggleScenarios('scenarioIncomplete', this.parentElement)"><strong>I</strong> 0</a></li>
      <li> <a href="#" title="Useless" onClick="toggleScenarios('scenarioUseless', this.parentElement)"><strong>U</strong> 0</a></li>
    </ul>
  <div class="layout">
- <h1>Codeception Results <small><span style="color: green">OK</span> (00:17.893)</small></h1>
+ <h1>Codeception Results <small><span style="color: #e74c3c">FAILED</span> (00:14.540)</small></h1>
 
 
 
@@ -226,29 +226,26 @@
  <td>
      <h3>Tests.acceptance Tests</h3>
  </td>
-</tr>   <tr class="scenarioRow scenarioSuccess">
+</tr>   <tr class="scenarioRow scenarioFailed">
     <td>
-     <p class="scenarioSuccess" onclick="showHide('1', this)"><span class="toggle">+</span>
-          <span class="quiet">HelloShortcodeCest &raquo;</span> Verify the [HELLO] shortcode renders HELLO WORLD on a page <span style="color: #34495e; font-size: 70%;">0.48s</span></p>
+     <p class="scenarioFailed" onclick="showHide('1', this)">
+          <span class="quiet">ActionButtonVisableCept &raquo;</span> Verify that the action button is visible in newly created AI plugins <span style="color: #34495e; font-size: 70%;">0s</span></p>
     </td>
    </tr>
-   <tr class="scenarioRow scenarioSuccess">
+   <tr class="scenarioRow scenarioFailed">
     <td>
-     <table border="0" width="100%" class="scenarioSuccess scenarioStepsTable" id="stepContainer1">
+     <table border="0" width="100%" class="scenarioFailed scenarioStepsTable" id="stepContainer1">
 
 
-      <tr>
-       <td class="stepName ">&nbsp;&nbsp;&nbsp;&nbsp;I am on page <span style="color: #732E81">&quot;/?pagename=shortcode-test&quot;</span></td>
-      </tr>
 
-      <tr>
-       <td class="stepName ">&nbsp;&nbsp;&nbsp;&nbsp;I see <span style="color: #732E81">&quot;HELLO WORLD&quot;</span></td>
-      </tr>
+         <tr >
+    <td class="error">
+        Class "AcceptanceTester" not found
+    </td>
+</tr>
 
-
-         
-         
-         
+         <tr><td class='error'><div class='screenshot'><img src='ActionButtonVisableCept.fail.png' alt='failure screenshot'></div></td></tr>
+         <tr><td class='error'>See <a href='ActionButtonVisableCept.fail.html' target='_blank'>HTML snapshot</a> of a failed page</td></tr>
      </table>
 
 
@@ -258,8 +255,8 @@
 
    <tr class="scenarioRow scenarioSuccess">
     <td>
-     <p class="scenarioSuccess" onclick="showHide('2', this)"><span class="toggle">+</span>
-          <span class="quiet">HelloWorldCest &raquo;</span> See Hello World on the WordPress homepage <span style="color: #34495e; font-size: 70%;">0.37s</span></p>
+     <p class="scenarioSuccess" onclick="showHide('2', this)">
+          <span class="quiet">CodeIsVisibleOnGithubCept &raquo;</span>  <span style="color: #34495e; font-size: 70%;">0s</span></p>
     </td>
    </tr>
    <tr class="scenarioRow scenarioSuccess">
@@ -267,14 +264,6 @@
      <table border="0" width="100%" class="scenarioSuccess scenarioStepsTable" id="stepContainer2">
 
 
-      <tr>
-       <td class="stepName ">&nbsp;&nbsp;&nbsp;&nbsp;I am on page <span style="color: #732E81">&quot;/&quot;</span></td>
-      </tr>
-
-      <tr>
-       <td class="stepName ">&nbsp;&nbsp;&nbsp;&nbsp;I see <span style="color: #732E81">&quot;Test Site&quot;</span></td>
-      </tr>
-
 
          
          
@@ -286,29 +275,26 @@
    </tr>
 
 
-   <tr class="scenarioRow scenarioSuccess">
+   <tr class="scenarioRow scenarioFailed">
     <td>
-     <p class="scenarioSuccess" onclick="showHide('3', this)"><span class="toggle">+</span>
-          <span class="quiet">PluginFrontendCest &raquo;</span> Verify the WordPress homepage loads <span style="color: #34495e; font-size: 70%;">0.37s</span></p>
+     <p class="scenarioFailed" onclick="showHide('3', this)">
+          <span class="quiet">ContentBackgroundUpdateCept &raquo;</span> Test that post content updates automatically when backend data changes via polling mechanism <span style="color: #34495e; font-size: 70%;">0s</span></p>
     </td>
    </tr>
-   <tr class="scenarioRow scenarioSuccess">
+   <tr class="scenarioRow scenarioFailed">
     <td>
-     <table border="0" width="100%" class="scenarioSuccess scenarioStepsTable" id="stepContainer3">
+     <table border="0" width="100%" class="scenarioFailed scenarioStepsTable" id="stepContainer3">
 
 
-      <tr>
-       <td class="stepName ">&nbsp;&nbsp;&nbsp;&nbsp;I am on page <span style="color: #732E81">&quot;/&quot;</span></td>
-      </tr>
 
-      <tr>
-       <td class="stepName ">&nbsp;&nbsp;&nbsp;&nbsp;I see <span style="color: #732E81">&quot;Test Site&quot;</span></td>
-      </tr>
+         <tr >
+    <td class="error">
+        Class "AcceptanceTester" not found
+    </td>
+</tr>
 
-
-         
-         
-         
+         <tr><td class='error'><div class='screenshot'><img src='ContentBackgroundUpdateCept.fail.png' alt='failure screenshot'></div></td></tr>
+         <tr><td class='error'>See <a href='ContentBackgroundUpdateCept.fail.html' target='_blank'>HTML snapshot</a> of a failed page</td></tr>
      </table>
 
 
@@ -316,57 +302,26 @@
    </tr>
 
 
-   <tr class="scenarioRow scenarioSuccess">
+   <tr class="scenarioRow scenarioFailed">
     <td>
-     <p class="scenarioSuccess" onclick="showHide('4', this)"><span class="toggle">+</span>
-          <span class="quiet">PluginFrontendCest &raquo;</span> Log in to wp-admin <span style="color: #34495e; font-size: 70%;">2.02s</span></p>
+     <p class="scenarioFailed" onclick="showHide('4', this)">
+          <span class="quiet">InfoTableBackground2UI_UpdateCept &raquo;</span> Test that UI updates automatically when backend data changes via polling mechanism 🔄 <span style="color: #34495e; font-size: 70%;">0s</span></p>
     </td>
    </tr>
-   <tr class="scenarioRow scenarioSuccess">
+   <tr class="scenarioRow scenarioFailed">
     <td>
-     <table border="0" width="100%" class="scenarioSuccess scenarioStepsTable" id="stepContainer4">
+     <table border="0" width="100%" class="scenarioFailed scenarioStepsTable" id="stepContainer4">
 
 
-<tr>
- <td class="stepName " ><p onclick="showHide('698eb6caa95b3', this)"><span class="toggle">+</span> I login as admin</p>
 
-     </td>
+         <tr >
+    <td class="error">
+        Class "AcceptanceTester" not found
+    </td>
 </tr>
-<tr>
- <td class="nostyle">
-  <table border="0" width="100%" class="substeps scenarioStepsTable" id="stepContainer698eb6caa95b3">
-          <tr>
-       <td class="stepName ">&nbsp;&nbsp;&nbsp;&nbsp;I am on page <span style="color: #732E81">&quot;/wp-login.php&quot;</span></td>
-      </tr>
 
-      <tr>
-       <td class="stepName ">&nbsp;&nbsp;&nbsp;&nbsp;I fill field <span style="color: #732E81">&quot;#user_login&quot;,&quot;admin&quot;</span></td>
-      </tr>
-
-      <tr>
-       <td class="stepName ">&nbsp;&nbsp;&nbsp;&nbsp;I fill field <span style="color: #732E81">&quot;#user_pass&quot;,&quot;admin&quot;</span></td>
-      </tr>
-
-      <tr>
-       <td class="stepName ">&nbsp;&nbsp;&nbsp;&nbsp;I click <span style="color: #732E81">&quot;#wp-submit&quot;</span></td>
-      </tr>
-
-      <tr>
-       <td class="stepName ">&nbsp;&nbsp;&nbsp;&nbsp;I wait for element <span style="color: #732E81">&quot;#wpadminbar&quot;,10</span></td>
-      </tr>
-
-
-  </table>
- </td>
-</tr>
-      <tr>
-       <td class="stepName ">&nbsp;&nbsp;&nbsp;&nbsp;I see <span style="color: #732E81">&quot;Dashboard&quot;</span></td>
-      </tr>
-
-
-         
-         
-         
+         <tr><td class='error'><div class='screenshot'><img src='InfoTableBackground2UI.UpdateCept.fail.png' alt='failure screenshot'></div></td></tr>
+         <tr><td class='error'>See <a href='InfoTableBackground2UI.UpdateCept.fail.html' target='_blank'>HTML snapshot</a> of a failed page</td></tr>
      </table>
 
 
@@ -374,61 +329,26 @@
    </tr>
 
 
-   <tr class="scenarioRow scenarioSuccess">
+   <tr class="scenarioRow scenarioFailed">
     <td>
-     <p class="scenarioSuccess" onclick="showHide('5', this)"><span class="toggle">+</span>
-          <span class="quiet">PluginFrontendCest &raquo;</span> Verify the plugin is listed and active <span style="color: #34495e; font-size: 70%;">2.65s</span></p>
+     <p class="scenarioFailed" onclick="showHide('5', this)">
+          <span class="quiet">InfoTableCept &raquo;</span> Test that UI updates automatically when backend data changes via polling mechanism 🔄 <span style="color: #34495e; font-size: 70%;">0s</span></p>
     </td>
    </tr>
-   <tr class="scenarioRow scenarioSuccess">
+   <tr class="scenarioRow scenarioFailed">
     <td>
-     <table border="0" width="100%" class="scenarioSuccess scenarioStepsTable" id="stepContainer5">
+     <table border="0" width="100%" class="scenarioFailed scenarioStepsTable" id="stepContainer5">
 
 
-<tr>
- <td class="stepName " ><p onclick="showHide('698eb6ced941e', this)"><span class="toggle">+</span> I login as admin</p>
 
-     </td>
+         <tr >
+    <td class="error">
+        Class "AcceptanceTester" not found
+    </td>
 </tr>
-<tr>
- <td class="nostyle">
-  <table border="0" width="100%" class="substeps scenarioStepsTable" id="stepContainer698eb6ced941e">
-          <tr>
-       <td class="stepName ">&nbsp;&nbsp;&nbsp;&nbsp;I am on page <span style="color: #732E81">&quot;/wp-login.php&quot;</span></td>
-      </tr>
 
-      <tr>
-       <td class="stepName ">&nbsp;&nbsp;&nbsp;&nbsp;I fill field <span style="color: #732E81">&quot;#user_login&quot;,&quot;admin&quot;</span></td>
-      </tr>
-
-      <tr>
-       <td class="stepName ">&nbsp;&nbsp;&nbsp;&nbsp;I fill field <span style="color: #732E81">&quot;#user_pass&quot;,&quot;admin&quot;</span></td>
-      </tr>
-
-      <tr>
-       <td class="stepName ">&nbsp;&nbsp;&nbsp;&nbsp;I click <span style="color: #732E81">&quot;#wp-submit&quot;</span></td>
-      </tr>
-
-      <tr>
-       <td class="stepName ">&nbsp;&nbsp;&nbsp;&nbsp;I wait for element <span style="color: #732E81">&quot;#wpadminbar&quot;,10</span></td>
-      </tr>
-
-
-  </table>
- </td>
-</tr>
-      <tr>
-       <td class="stepName ">&nbsp;&nbsp;&nbsp;&nbsp;I am on page <span style="color: #732E81">&quot;/wp-admin/plugins.php&quot;</span></td>
-      </tr>
-
-      <tr>
-       <td class="stepName ">&nbsp;&nbsp;&nbsp;&nbsp;I see <span style="color: #732E81">&quot;My Plugin&quot;</span></td>
-      </tr>
-
-
-         
-         
-         
+         <tr><td class='error'><div class='screenshot'><img src='InfoTableCept.fail.png' alt='failure screenshot'></div></td></tr>
+         <tr><td class='error'>See <a href='InfoTableCept.fail.html' target='_blank'>HTML snapshot</a> of a failed page</td></tr>
      </table>
 
 
@@ -436,61 +356,26 @@
    </tr>
 
 
-   <tr class="scenarioRow scenarioSuccess">
+   <tr class="scenarioRow scenarioFailed">
     <td>
-     <p class="scenarioSuccess" onclick="showHide('6', this)"><span class="toggle">+</span>
-          <span class="quiet">PluginFrontendCest &raquo;</span> Verify the Book CPT menu appears in wp-admin <span style="color: #34495e; font-size: 70%;">2.63s</span></p>
+     <p class="scenarioFailed" onclick="showHide('6', this)">
+          <span class="quiet">InitialPluginCreationCept &raquo;</span> Test initial plugin creation and download functionality 🚀 <span style="color: #34495e; font-size: 70%;">0s</span></p>
     </td>
    </tr>
-   <tr class="scenarioRow scenarioSuccess">
+   <tr class="scenarioRow scenarioFailed">
     <td>
-     <table border="0" width="100%" class="scenarioSuccess scenarioStepsTable" id="stepContainer6">
+     <table border="0" width="100%" class="scenarioFailed scenarioStepsTable" id="stepContainer6">
 
 
-<tr>
- <td class="stepName " ><p onclick="showHide('698eb6d30cb0e', this)"><span class="toggle">+</span> I login as admin</p>
 
-     </td>
+         <tr >
+    <td class="error">
+        Class "AcceptanceTester" not found
+    </td>
 </tr>
-<tr>
- <td class="nostyle">
-  <table border="0" width="100%" class="substeps scenarioStepsTable" id="stepContainer698eb6d30cb0e">
-          <tr>
-       <td class="stepName ">&nbsp;&nbsp;&nbsp;&nbsp;I am on page <span style="color: #732E81">&quot;/wp-login.php&quot;</span></td>
-      </tr>
 
-      <tr>
-       <td class="stepName ">&nbsp;&nbsp;&nbsp;&nbsp;I fill field <span style="color: #732E81">&quot;#user_login&quot;,&quot;admin&quot;</span></td>
-      </tr>
-
-      <tr>
-       <td class="stepName ">&nbsp;&nbsp;&nbsp;&nbsp;I fill field <span style="color: #732E81">&quot;#user_pass&quot;,&quot;admin&quot;</span></td>
-      </tr>
-
-      <tr>
-       <td class="stepName ">&nbsp;&nbsp;&nbsp;&nbsp;I click <span style="color: #732E81">&quot;#wp-submit&quot;</span></td>
-      </tr>
-
-      <tr>
-       <td class="stepName ">&nbsp;&nbsp;&nbsp;&nbsp;I wait for element <span style="color: #732E81">&quot;#wpadminbar&quot;,10</span></td>
-      </tr>
-
-
-  </table>
- </td>
-</tr>
-      <tr>
-       <td class="stepName ">&nbsp;&nbsp;&nbsp;&nbsp;I am on page <span style="color: #732E81">&quot;/wp-admin/edit.php?post_type=book&quot;</span></td>
-      </tr>
-
-      <tr>
-       <td class="stepName ">&nbsp;&nbsp;&nbsp;&nbsp;I see <span style="color: #732E81">&quot;Books&quot;</span></td>
-      </tr>
-
-
-         
-         
-         
+         <tr><td class='error'><div class='screenshot'><img src='InitialPluginCreationCept.fail.png' alt='failure screenshot'></div></td></tr>
+         <tr><td class='error'>See <a href='InitialPluginCreationCept.fail.html' target='_blank'>HTML snapshot</a> of a failed page</td></tr>
      </table>
 
 
@@ -498,25 +383,26 @@
    </tr>
 
 
-<tr>
- <td>
-     <h3>Tests.wpunit Tests</h3>
- </td>
-</tr>   <tr class="scenarioRow scenarioSuccess">
+   <tr class="scenarioRow scenarioFailed">
     <td>
-     <p class="scenarioSuccess" onclick="showHide('7', this)">
-          <span class="quiet">HelloShortcodeTest &raquo;</span> Hello shortcode is registered <span style="color: #34495e; font-size: 70%;">0.02s</span></p>
+     <p class="scenarioFailed" onclick="showHide('7', this)">
+          <span class="quiet">ProductionBuildCept &raquo;</span>  <span style="color: #34495e; font-size: 70%;">0s</span></p>
     </td>
    </tr>
-   <tr class="scenarioRow scenarioSuccess">
+   <tr class="scenarioRow scenarioFailed">
     <td>
-     <table border="0" width="100%" class="scenarioSuccess scenarioStepsTable" id="stepContainer7">
+     <table border="0" width="100%" class="scenarioFailed scenarioStepsTable" id="stepContainer7">
 
 
 
-         
-         
-         
+         <tr >
+    <td class="error">
+        Class "AcceptanceTester" not found
+    </td>
+</tr>
+
+         <tr><td class='error'><div class='screenshot'><img src='ProductionBuildCept.fail.png' alt='failure screenshot'></div></td></tr>
+         <tr><td class='error'>See <a href='ProductionBuildCept.fail.html' target='_blank'>HTML snapshot</a> of a failed page</td></tr>
      </table>
 
 
@@ -527,7 +413,7 @@
    <tr class="scenarioRow scenarioSuccess">
     <td>
      <p class="scenarioSuccess" onclick="showHide('8', this)">
-          <span class="quiet">HelloShortcodeTest &raquo;</span> Hello shortcode returns hello world <span style="color: #34495e; font-size: 70%;">0s</span></p>
+          <span class="quiet">SlashCommnad_UpdateNameCept &raquo;</span>  <span style="color: #34495e; font-size: 70%;">0s</span></p>
     </td>
    </tr>
    <tr class="scenarioRow scenarioSuccess">
@@ -549,7 +435,7 @@
    <tr class="scenarioRow scenarioSuccess">
     <td>
      <p class="scenarioSuccess" onclick="showHide('9', this)">
-          <span class="quiet">HelloShortcodeTest &raquo;</span> Hello shortcode renders via do shortcode <span style="color: #34495e; font-size: 70%;">0s</span></p>
+          <span class="quiet">TaskLinkedPostNomenclatureCept &raquo;</span>  <span style="color: #34495e; font-size: 70%;">0s</span></p>
     </td>
    </tr>
    <tr class="scenarioRow scenarioSuccess">
@@ -571,7 +457,7 @@
    <tr class="scenarioRow scenarioSuccess">
     <td>
      <p class="scenarioSuccess" onclick="showHide('10', this)">
-          <span class="quiet">PluginActivationTest &raquo;</span> Plugin is active <span style="color: #34495e; font-size: 70%;">0s</span></p>
+          <span class="quiet">TaskPathCept &raquo;</span>  <span style="color: #34495e; font-size: 70%;">0s</span></p>
     </td>
    </tr>
    <tr class="scenarioRow scenarioSuccess">
@@ -593,78 +479,12 @@
    <tr class="scenarioRow scenarioSuccess">
     <td>
      <p class="scenarioSuccess" onclick="showHide('11', this)">
-          <span class="quiet">PluginActivationTest &raquo;</span> Greet returns expected string <span style="color: #34495e; font-size: 70%;">0s</span></p>
+          <span class="quiet">TemplateFilesCept &raquo;</span>  <span style="color: #34495e; font-size: 70%;">0s</span></p>
     </td>
    </tr>
    <tr class="scenarioRow scenarioSuccess">
     <td>
      <table border="0" width="100%" class="scenarioSuccess scenarioStepsTable" id="stepContainer11">
-
-
-
-         
-         
-         
-     </table>
-
-
-    </td>
-   </tr>
-
-
-   <tr class="scenarioRow scenarioSuccess">
-    <td>
-     <p class="scenarioSuccess" onclick="showHide('12', this)">
-          <span class="quiet">PluginActivationTest &raquo;</span> Greet with empty name <span style="color: #34495e; font-size: 70%;">0s</span></p>
-    </td>
-   </tr>
-   <tr class="scenarioRow scenarioSuccess">
-    <td>
-     <table border="0" width="100%" class="scenarioSuccess scenarioStepsTable" id="stepContainer12">
-
-
-
-         
-         
-         
-     </table>
-
-
-    </td>
-   </tr>
-
-
-   <tr class="scenarioRow scenarioSuccess">
-    <td>
-     <p class="scenarioSuccess" onclick="showHide('13', this)">
-          <span class="quiet">PluginActivationTest &raquo;</span> Book post type is registered <span style="color: #34495e; font-size: 70%;">0s</span></p>
-    </td>
-   </tr>
-   <tr class="scenarioRow scenarioSuccess">
-    <td>
-     <table border="0" width="100%" class="scenarioSuccess scenarioStepsTable" id="stepContainer13">
-
-
-
-         
-         
-         
-     </table>
-
-
-    </td>
-   </tr>
-
-
-   <tr class="scenarioRow scenarioSuccess">
-    <td>
-     <p class="scenarioSuccess" onclick="showHide('14', this)">
-          <span class="quiet">PluginActivationTest &raquo;</span> Can insert book post <span style="color: #34495e; font-size: 70%;">0.03s</span></p>
-    </td>
-   </tr>
-   <tr class="scenarioRow scenarioSuccess">
-    <td>
-     <table border="0" width="100%" class="scenarioSuccess scenarioStepsTable" id="stepContainer14">
 
 
 
@@ -686,7 +506,7 @@
       <table border="0">
        <tr>
         <td width="250" class="scenarioSuccess">Successful scenarios:</td>
-        <td class="scenarioSuccessValue"><strong>14</strong></td>
+        <td class="scenarioSuccessValue"><strong>5</strong></td>
        </tr>
        <tr>
         <td class="scenarioFailed">Failed scenarios:</td>

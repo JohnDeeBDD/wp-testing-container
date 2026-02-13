@@ -1,21 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="Tests.acceptance" tests="6" assertions="6" errors="0" failures="0" skipped="0" useless="0" time="8.538370">
-    <testcase name="shortcodeRendersOnPage" class="Tests\acceptance\HelloShortcodeCest" file="/home/user/wp-testing-container/tests/acceptance/HelloShortcodeCest.php" feature="verify the [HELLO] shortcode renders HELLO WORLD on a page" time="0.484339" assertions="1"/>
-    <testcase name="helloWorldTest" class="Tests\acceptance\HelloWorldCest" file="/home/user/wp-testing-container/tests/acceptance/HelloWorldCest.php" feature="see Hello World on the WordPress homepage" time="0.374122" assertions="1"/>
-    <testcase name="homepageLoads" class="Tests\acceptance\PluginFrontendCest" file="/home/user/wp-testing-container/tests/acceptance/PluginFrontendCest.php" feature="verify the WordPress homepage loads" time="0.371783" assertions="1"/>
-    <testcase name="adminLoginWorks" class="Tests\acceptance\PluginFrontendCest" file="/home/user/wp-testing-container/tests/acceptance/PluginFrontendCest.php" feature="log in to wp-admin" time="2.021871" assertions="1"/>
-    <testcase name="pluginAppearsOnPluginsPage" class="Tests\acceptance\PluginFrontendCest" file="/home/user/wp-testing-container/tests/acceptance/PluginFrontendCest.php" feature="verify the plugin is listed and active" time="2.652195" assertions="1"/>
-    <testcase name="bookPostTypeVisibleInAdmin" class="Tests\acceptance\PluginFrontendCest" file="/home/user/wp-testing-container/tests/acceptance/PluginFrontendCest.php" feature="verify the Book CPT menu appears in wp-admin" time="2.634061" assertions="1"/>
-  </testsuite>
-  <testsuite name="Tests.wpunit" tests="8" assertions="11" errors="0" failures="0" skipped="0" useless="0" time="0.063727">
-    <testcase name="testHelloShortcodeIsRegistered" class="Tests\wpunit\HelloShortcodeTest" file="/home/user/wp-testing-container/tests/wpunit/HelloShortcodeTest.php" time="0.024477" assertions="1"/>
-    <testcase name="testHelloShortcodeReturnsHelloWorld" class="Tests\wpunit\HelloShortcodeTest" file="/home/user/wp-testing-container/tests/wpunit/HelloShortcodeTest.php" time="0.001239" assertions="1"/>
-    <testcase name="testHelloShortcodeRendersViaDoShortcode" class="Tests\wpunit\HelloShortcodeTest" file="/home/user/wp-testing-container/tests/wpunit/HelloShortcodeTest.php" time="0.000678" assertions="1"/>
-    <testcase name="testPluginIsActive" class="Tests\wpunit\PluginActivationTest" file="/home/user/wp-testing-container/tests/wpunit/PluginActivationTest.php" time="0.001187" assertions="1"/>
-    <testcase name="testGreetReturnsExpectedString" class="Tests\wpunit\PluginActivationTest" file="/home/user/wp-testing-container/tests/wpunit/PluginActivationTest.php" time="0.000522" assertions="1"/>
-    <testcase name="testGreetWithEmptyName" class="Tests\wpunit\PluginActivationTest" file="/home/user/wp-testing-container/tests/wpunit/PluginActivationTest.php" time="0.000344" assertions="1"/>
-    <testcase name="testBookPostTypeIsRegistered" class="Tests\wpunit\PluginActivationTest" file="/home/user/wp-testing-container/tests/wpunit/PluginActivationTest.php" time="0.000400" assertions="1"/>
-    <testcase name="testCanInsertBookPost" class="Tests\wpunit\PluginActivationTest" file="/home/user/wp-testing-container/tests/wpunit/PluginActivationTest.php" time="0.034880" assertions="4"/>
+  <testsuite name="Tests.acceptance" tests="11" assertions="0" errors="6" failures="0" skipped="0" useless="0" time="0.007637">
+    <testcase name="ActionButtonVisable" file="/home/user/wp-testing-container/tests/acceptance/ActionButtonVisableCept.php" feature="Verify that the action button is visible in newly created AI plugins" time="0.001360" assertions="0">
+      <error type="Error">ActionButtonVisableCept: Verify that the action button is visible in newly created AI plugins
+Error: Class "AcceptanceTester" not found
+
+/home/user/wp-testing-container/tests/acceptance/ActionButtonVisableCept.php:27
+/home/user/wp-testing-container/vendor/bin/codecept:119</error>
+    </testcase>
+    <testcase name="CodeIsVisibleOnGithub" file="/home/user/wp-testing-container/tests/acceptance/CodeIsVisibleOnGithubCept.php" feature="" time="0.000382" assertions="0"/>
+    <testcase name="ContentBackgroundUpdate" file="/home/user/wp-testing-container/tests/acceptance/ContentBackgroundUpdateCept.php" feature="Test that post content updates automatically when backend data changes via polling mechanism" time="0.000725" assertions="0">
+      <error type="Error">ContentBackgroundUpdateCept: Test that post content updates automatically when backend data changes via polling mechanism
+Error: Class "AcceptanceTester" not found
+
+/home/user/wp-testing-container/tests/acceptance/ContentBackgroundUpdateCept.php:3
+/home/user/wp-testing-container/vendor/bin/codecept:119</error>
+    </testcase>
+    <testcase name="InfoTableBackground2UI_Update" file="/home/user/wp-testing-container/tests/acceptance/InfoTableBackground2UI_UpdateCept.php" feature="Test that UI updates automatically when backend data changes via polling mechanism 🔄" time="0.000750" assertions="0">
+      <error type="Error">InfoTableBackground2UI_UpdateCept: Test that UI updates automatically when backend data changes via polling mechanism 🔄
+Error: Class "AcceptanceTester" not found
+
+/home/user/wp-testing-container/tests/acceptance/InfoTableBackground2UI_UpdateCept.php:3
+/home/user/wp-testing-container/vendor/bin/codecept:119</error>
+    </testcase>
+    <testcase name="InfoTable" file="/home/user/wp-testing-container/tests/acceptance/InfoTableCept.php" feature="Test that UI updates automatically when backend data changes via polling mechanism 🔄" time="0.000825" assertions="0">
+      <error type="Error">InfoTableCept: Test that UI updates automatically when backend data changes via polling mechanism 🔄
+Error: Class "AcceptanceTester" not found
+
+/home/user/wp-testing-container/tests/acceptance/InfoTableCept.php:3
+/home/user/wp-testing-container/vendor/bin/codecept:119</error>
+    </testcase>
+    <testcase name="InitialPluginCreation" file="/home/user/wp-testing-container/tests/acceptance/InitialPluginCreationCept.php" feature="Test initial plugin creation and download functionality 🚀" time="0.001024" assertions="0">
+      <error type="Error">InitialPluginCreationCept: Test initial plugin creation and download functionality 🚀
+Error: Class "AcceptanceTester" not found
+
+/home/user/wp-testing-container/tests/acceptance/InitialPluginCreationCept.php:3
+/home/user/wp-testing-container/vendor/bin/codecept:119</error>
+    </testcase>
+    <testcase name="ProductionBuild" file="/home/user/wp-testing-container/tests/acceptance/ProductionBuildCept.php" feature="" time="0.000893" assertions="0">
+      <error type="Error">ProductionBuildCept: 
+Error: Class "AcceptanceTester" not found
+
+/home/user/wp-testing-container/tests/acceptance/ProductionBuildCept.php:9
+/home/user/wp-testing-container/vendor/bin/codecept:119</error>
+    </testcase>
+    <testcase name="SlashCommnad_UpdateName" file="/home/user/wp-testing-container/tests/acceptance/SlashCommnad_UpdateNameCept.php" feature="" time="0.000444" assertions="0"/>
+    <testcase name="TaskLinkedPostNomenclature" file="/home/user/wp-testing-container/tests/acceptance/TaskLinkedPostNomenclatureCept.php" feature="" time="0.000433" assertions="0"/>
+    <testcase name="TaskPath" file="/home/user/wp-testing-container/tests/acceptance/TaskPathCept.php" feature="" time="0.000411" assertions="0"/>
+    <testcase name="TemplateFiles" file="/home/user/wp-testing-container/tests/acceptance/TemplateFilesCept.php" feature="" time="0.000389" assertions="0"/>
   </testsuite>
 </testsuites>

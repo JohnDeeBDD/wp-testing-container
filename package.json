@@ -1,0 +1,7 @@
+{
+  "name": "wp-testing-container",
+  "private": true,
+  "scripts": {
+    "build": "echo 'No build step configured'"
+  }
+}

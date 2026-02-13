@@ -1,31 +1,124 @@
 Codeception PHP Testing Framework v5.3.4 https://stand-with-ukraine.pp.ua
+Running npm run build before acceptance tests...
 
-[1mTests.acceptance Tests (6) [22m---------------------------------
-Modules: [32mWebDriver, Asserts[39m
-------------------------------------------------------------
-[32;1m✔[39;22m [35;1mHelloShortcodeCest:[39;22m Verify the [HELLO] shortcode renders HELLO WORLD on a page[32m (0.48s)[39m
-[32;1m✔[39;22m [35;1mHelloWorldCest:[39;22m See Hello World on the WordPress homepage[32m (0.37s)[39m
-[32;1m✔[39;22m [35;1mPluginFrontendCest:[39;22m Verify the WordPress homepage loads[32m (0.37s)[39m
-[32;1m✔[39;22m [35;1mPluginFrontendCest:[39;22m Log in to wp-admin[32m (2.02s)[39m
-[32;1m✔[39;22m [35;1mPluginFrontendCest:[39;22m Verify the plugin is listed and active[32m (2.65s)[39m
-[32;1m✔[39;22m [35;1mPluginFrontendCest:[39;22m Verify the Book CPT menu appears in wp-admin[32m (2.63s)[39m
-------------------------------------------------------------
-WordPress 6.9.1 loaded from /var/www/html
+> build
+> echo 'No build step configured'
 
-[1mTests.wpunit Tests (8) [22m-------------------------------------
-Modules: [32mAsserts[39m
-------------------------------------------------------------
-[32;1m✔[39;22m [35;1mHelloShortcodeTest:[39;22m Hello shortcode is registered[32m (0.02s)[39m
-[32;1m✔[39;22m [35;1mHelloShortcodeTest:[39;22m Hello shortcode returns hello world[32m (0.00s)[39m
-[32;1m✔[39;22m [35;1mHelloShortcodeTest:[39;22m Hello shortcode renders via do shortcode[32m (0.00s)[39m
-[32;1m✔[39;22m [35;1mPluginActivationTest:[39;22m Plugin is active[32m (0.00s)[39m
-[32;1m✔[39;22m [35;1mPluginActivationTest:[39;22m Greet returns expected string[32m (0.00s)[39m
-[32;1m✔[39;22m [35;1mPluginActivationTest:[39;22m Greet with empty name[32m (0.00s)[39m
-[32;1m✔[39;22m [35;1mPluginActivationTest:[39;22m Book post type is registered[32m (0.00s)[39m
-[32;1m✔[39;22m [35;1mPluginActivationTest:[39;22m Can insert book post[32m (0.03s)[39m
-------------------------------------------------------------
-Time: 00:17.898, Memory: 44.50 MB
+No build step configured
+npm run build completed successfully.
 
-[30;42mOK (14 tests, 17 assertions)[39;49m
-- [1mHTML[22m report generated in [33mfile:///home/user/wp-testing-container/tests/_output/report.html[39m
-- [1mJUNIT XML[22m report generated in [33mfile:///home/user/wp-testing-container/tests/_output/report.xml[39m
+Tests.acceptance Tests (11) --------------------------------
+Modules: WebDriver, Asserts
+------------------------------------------------------------
+E ActionButtonVisableCept: Verify that the action button is visible in newly created AI plugins (0.00s)
+todo
++ CodeIsVisibleOnGithubCept:  (0.00s)
+E ContentBackgroundUpdateCept: Test that post content updates automatically when backend data changes via polling mechanism (0.00s)
+E InfoTableBackground2UI_UpdateCept: Test that UI updates automatically when backend data changes via polling mechanism 🔄 (0.00s)
+E InfoTableCept: Test that UI updates automatically when backend data changes via polling mechanism 🔄 (0.00s)
+E InitialPluginCreationCept: Test initial plugin creation and download functionality 🚀 (0.00s)
+E ProductionBuildCept:  (0.00s)
++ SlashCommnad_UpdateNameCept:  (0.00s)
+In Cacbot, we have "Anchor Posts" and "Linked Posts". The AI Plugin custom post type is a set as an Anchor Post.
+
+Each task that is performed is stored as a linked post pointing to the Ai Plugin CPT.
+
+Once the task is performed, the comments are closed on the linked post.
+
+To initiate a new task, the user should click "New" in the frontend.
++ TaskLinkedPostNomenclatureCept:  (0.00s)
++ TaskPathCept:  (0.00s)
+These are the files that are created during the plugin build process:
+
+aiplugin{post_id}_spec.md
+
+agent_task_{task_id}.json
+
+codeception.yml
+
+aiplugin{post_id}.code-workspace
+
+aiplugin{post_id}.details.json
+
+composer.json
+
+linked_post_id_{post_id}.json
+
+roo-bridge-debug.log
+
+spec.md
+
+task_completion_status.json+ TemplateFilesCept:  (0.00s)
+------------------------------------------------------------
+Time: 00:13.606, Memory: 12.00 MB
+
+There were 6 errors:
+1) ActionButtonVisableCept: Verify that the action button is visible in newly created AI plugins
+ Test  tests/acceptance/ActionButtonVisableCept.php
+                                              
+  [Error] Class "AcceptanceTester" not found  
+                                              
+#1  /home/user/wp-testing-container/tests/acceptance/ActionButtonVisableCept.php:27
+#2  /home/user/wp-testing-container/vendor/bin/codecept:119
+Artifacts:
+
+Png: /home/user/wp-testing-container/tests/_output/ActionButtonVisableCept.fail.png
+Html: /home/user/wp-testing-container/tests/_output/ActionButtonVisableCept.fail.html
+2) ContentBackgroundUpdateCept: Test that post content updates automatically when backend data changes via polling mechanism
+ Test  tests/acceptance/ContentBackgroundUpdateCept.php
+                                              
+  [Error] Class "AcceptanceTester" not found  
+                                              
+#1  /home/user/wp-testing-container/tests/acceptance/ContentBackgroundUpdateCept.php:3
+#2  /home/user/wp-testing-container/vendor/bin/codecept:119
+Artifacts:
+
+Png: /home/user/wp-testing-container/tests/_output/ContentBackgroundUpdateCept.fail.png
+Html: /home/user/wp-testing-container/tests/_output/ContentBackgroundUpdateCept.fail.html
+3) InfoTableBackground2UI_UpdateCept: Test that UI updates automatically when backend data changes via polling mechanism 🔄
+ Test  tests/acceptance/InfoTableBackground2UI_UpdateCept.php
+                                              
+  [Error] Class "AcceptanceTester" not found  
+                                              
+#1  /home/user/wp-testing-container/tests/acceptance/InfoTableBackground2UI_UpdateCept.php:3
+#2  /home/user/wp-testing-container/vendor/bin/codecept:119
+Artifacts:
+
+Png: /home/user/wp-testing-container/tests/_output/InfoTableBackground2UI.UpdateCept.fail.png
+Html: /home/user/wp-testing-container/tests/_output/InfoTableBackground2UI.UpdateCept.fail.html
+4) InfoTableCept: Test that UI updates automatically when backend data changes via polling mechanism 🔄
+ Test  tests/acceptance/InfoTableCept.php
+                                              
+  [Error] Class "AcceptanceTester" not found  
+                                              
+#1  /home/user/wp-testing-container/tests/acceptance/InfoTableCept.php:3
+#2  /home/user/wp-testing-container/vendor/bin/codecept:119
+Artifacts:
+
+Png: /home/user/wp-testing-container/tests/_output/InfoTableCept.fail.png
+Html: /home/user/wp-testing-container/tests/_output/InfoTableCept.fail.html
+5) InitialPluginCreationCept: Test initial plugin creation and download functionality 🚀
+ Test  tests/acceptance/InitialPluginCreationCept.php
+                                              
+  [Error] Class "AcceptanceTester" not found  
+                                              
+#1  /home/user/wp-testing-container/tests/acceptance/InitialPluginCreationCept.php:3
+#2  /home/user/wp-testing-container/vendor/bin/codecept:119
+Artifacts:
+
+Png: /home/user/wp-testing-container/tests/_output/InitialPluginCreationCept.fail.png
+Html: /home/user/wp-testing-container/tests/_output/InitialPluginCreationCept.fail.html
+6) ProductionBuildCept: 
+ Test  tests/acceptance/ProductionBuildCept.php
+                                              
+  [Error] Class "AcceptanceTester" not found  
+                                              
+#1  /home/user/wp-testing-container/tests/acceptance/ProductionBuildCept.php:9
+#2  /home/user/wp-testing-container/vendor/bin/codecept:119
+Artifacts:
+
+Png: /home/user/wp-testing-container/tests/_output/ProductionBuildCept.fail.png
+Html: /home/user/wp-testing-container/tests/_output/ProductionBuildCept.fail.html
+
+ERRORS!
+Tests: 11, Assertions: 0, Errors: 6.
