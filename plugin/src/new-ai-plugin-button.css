@@ -1,0 +1,53 @@
+/* New AI Plugin Button Styling */
+#ai-plugin-dev-new-plugin-button {
+    /* Make it blue */
+    background-color: #0073aa !important;
+    background-image: linear-gradient(to bottom, #0085ba, #005a87) !important;
+    border-color: #005a87 !important;
+    
+    /* Triple the size */
+    font-size: 24px !important;
+    padding: 18px 36px !important;
+    min-height: 60px !important;
+    
+    /* Make it prominent */
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    box-shadow: 0 4px 8px rgba(0, 115, 170, 0.3) !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+    
+    /* Ensure text color is white */
+    color: #ffffff !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Hover effects */
+#ai-plugin-dev-new-plugin-button:hover {
+    background-color: #005a87 !important;
+    background-image: linear-gradient(to bottom, #0073aa, #004a73) !important;
+    border-color: #004a73 !important;
+    box-shadow: 0 6px 12px rgba(0, 115, 170, 0.4) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Active/pressed state */
+#ai-plugin-dev-new-plugin-button:active {
+    background-color: #004a73 !important;
+    background-image: none !important;
+    box-shadow: 0 2px 4px rgba(0, 115, 170, 0.3) inset !important;
+    transform: translateY(0) !important;
+}
+
+/* Focus state for accessibility */
+#ai-plugin-dev-new-plugin-button:focus {
+    outline: 3px solid rgba(0, 115, 170, 0.5) !important;
+    outline-offset: 2px !important;
+}
+
+/* Container styling to center the button */
+form[style*="display: inline-block"] {
+    text-align: center !important;
+    margin: 20px 0 !important;
+}

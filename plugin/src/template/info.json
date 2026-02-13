@@ -1,0 +1,11 @@
+{
+  "name" : "",
+  "slug" : "aiplugin{plugin_id}",
+  "author" : "",
+  "version" : "1",
+  "download_url" : "https://aiplugin.dev/wp-content/aiplugins/aiplugin{plugin_id}.zip",
+  "requires" : "6.0",
+  "tested" : "6.3",
+  "requires_php" : "8.0",
+  "last_updated" : ""
+}

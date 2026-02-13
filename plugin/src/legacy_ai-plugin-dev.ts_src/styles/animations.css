@@ -1,0 +1,533 @@
+/**
+ * Animation styles for AI Plugin Dev
+ * 
+ * This file contains CSS animations and transitions for the refactored
+ * TypeScript application, including loading states and UI transitions.
+ */
+
+/* Loading Container Base Styles */
+.loading-container {
+  transition: opacity 0.3s ease-in-out;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Loading Spinner Animation */
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #0073aa;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 10px;
+}
+
+/* Loading Dots Animation */
+.loading-dots {
+  display: inline-block;
+  animation: pulse 1.5s ease-in-out infinite;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+/* Loading Progress Bar */
+.loading-progress {
+  display: inline-block;
+  width: 30px;
+  height: 4px;
+  background: #f3f3f3;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-right: 10px;
+  position: relative;
+}
+
+.loading-progress::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #0073aa;
+  border-radius: 2px;
+  animation: progress 2s ease-in-out infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Fade Animations */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.fade-out {
+  animation: fadeOut 0.3s ease-in-out;
+}
+
+/* Button State Transitions */
+.ai-plugin-build-btn {
+  transition: all 0.3s ease-in-out;
+}
+
+.ai-plugin-build-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Status Indicator Styles */
+.status-indicator {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.status-indicator.status-idle {
+  background-color: #6c757d;
+}
+
+.status-indicator.status-building {
+  background-color: #ffc107;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.status-indicator.status-done {
+  background-color: #28a745;
+}
+
+.status-indicator.status-error {
+  background-color: #dc3545;
+}
+
+.status-indicator.status-ready {
+  background-color: #17a2b8;
+}
+
+.status-indicator.status-unpublished {
+  background-color: #6c757d;
+  opacity: 0.5;
+}
+
+/* Agent Status Display */
+.agent-status {
+  transition: all 0.3s ease-in-out;
+  padding: 8px 12px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.agent-status.status-building {
+  background-color: #fff3cd;
+  border: 1px solid #ffeaa7;
+  color: #856404;
+}
+
+.agent-status.status-done {
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+}
+
+.agent-status.status-error {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+}
+
+.agent-status.status-idle,
+.agent-status.status-ready {
+  background-color: #d1ecf1;
+  border: 1px solid #bee5eb;
+  color: #0c5460;
+}
+
+.agent-status.status-unpublished {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  color: #6c757d;
+}
+
+/* Build Complete Message */
+.build-complete-message {
+  animation: slideInFromTop 0.5s ease-out;
+}
+
+/* Download Link Animation */
+.download-link {
+  animation: slideInFromBottom 0.5s ease-out;
+}
+
+.download-link a {
+  transition: all 0.2s ease-in-out;
+}
+
+.download-link a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Keyframe Animations */
+@keyframes spin {
+  0% { 
+    transform: rotate(0deg); 
+  }
+  100% { 
+    transform: rotate(360deg); 
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { 
+    opacity: 1; 
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.7; 
+    transform: scale(1.05);
+  }
+}
+
+@keyframes progress {
+  0% { 
+    transform: translateX(-100%); 
+  }
+  50% {
+    transform: translateX(0%);
+  }
+  100% { 
+    transform: translateX(100%); 
+  }
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: scale(0.95);
+  }
+  to { 
+    opacity: 1; 
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  from { 
+    opacity: 1; 
+    transform: scale(1);
+  }
+  to { 
+    opacity: 0; 
+    transform: scale(0.95);
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .loading-container {
+    min-width: 150px;
+    padding: 15px;
+  }
+  
+  .loading-spinner {
+    width: 16px;
+    height: 16px;
+    border-width: 2px;
+  }
+  
+  .agent-status {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .loading-spinner {
+    border-top-color: #000;
+  }
+  
+  .loading-progress::after {
+    background: #000;
+  }
+  
+  .status-indicator.status-building {
+    background-color: #ff0;
+    border: 1px solid #000;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .loading-spinner,
+  .loading-dots,
+  .loading-progress::after,
+  .status-indicator.status-building {
+    animation: none;
+  }
+  
+  .fade-in,
+  .fade-out,
+  .build-complete-message,
+  .download-link {
+    animation: none;
+  }
+  
+  * {
+    transition: none !important;
+  }
+
+/* ========================================
+   FIELD UPDATER SYSTEM ANIMATIONS
+   Enhanced animations for the generic field updater system
+   ======================================== */
+
+/* Legacy version-updated class for backward compatibility */
+.version-updated {
+    background-color: #fff3cd;
+    transition: background-color 0.3s ease;
+    animation: highlight-fade 2s ease-out;
+}
+
+/* Generic field animation classes */
+
+/* Highlight animation - for version updates and important changes */
+.field-highlight {
+    background-color: #fff3cd;
+    transition: background-color 0.3s ease;
+    animation: highlight-pulse 2s ease-out;
+}
+
+/* Fade animation - for description and content updates */
+.field-fade {
+    animation: fade-update 0.5s ease-in-out;
+}
+
+/* Slide animation - for title updates */
+.field-slide {
+    animation: slide-update 0.3s ease-out;
+}
+
+/* Typing animation - for content updates */
+.field-typing {
+    animation: typing-update 1s steps(40, end);
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* Color animation - for status changes */
+.field-color {
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Field updater keyframe definitions */
+
+@keyframes highlight-fade {
+    0% {
+        background-color: #fff3cd;
+    }
+    50% {
+        background-color: #ffeaa7;
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+
+@keyframes highlight-pulse {
+    0% {
+        background-color: #fff3cd;
+        transform: scale(1);
+    }
+    25% {
+        background-color: #ffeaa7;
+        transform: scale(1.02);
+    }
+    50% {
+        background-color: #fdcb6e;
+        transform: scale(1.01);
+    }
+    75% {
+        background-color: #ffeaa7;
+        transform: scale(1.005);
+    }
+    100% {
+        background-color: transparent;
+        transform: scale(1);
+    }
+}
+
+@keyframes fade-update {
+    0% {
+        opacity: 0.3;
+        transform: translateY(-2px);
+    }
+    50% {
+        opacity: 0.7;
+        transform: translateY(-1px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-update {
+    0% {
+        transform: translateX(-10px);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translateX(-2px);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes typing-update {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* Enhanced animations for specific field types */
+
+/* Title field specific styling */
+.field-title-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.field-title-container .field-slide {
+    position: relative;
+}
+
+.field-title-container .field-slide::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: shine 0.3s ease-out;
+}
+
+@keyframes shine {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* Description field specific styling */
+.field-description-container .field-fade {
+    border-left: 3px solid #74b9ff;
+    padding-left: 8px;
+    transition: border-color 0.5s ease;
+}
+
+/* Version field specific styling */
+.field-version-container .field-highlight {
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-weight: 500;
+}
+
+/* Content field specific styling */
+.field-content-container {
+    position: relative;
+}
+
+.field-content-container .field-typing {
+    border-right: 2px solid #0984e3;
+    animation: typing-update 1s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #0984e3;
+    }
+}
+
+/* Status indicators for field updates */
+.field-status-success {
+    color: #00b894;
+    background-color: rgba(0, 184, 148, 0.1);
+}
+
+.field-status-error {
+    color: #e17055;
+    background-color: rgba(225, 112, 85, 0.1);
+}
+
+.field-status-warning {
+    color: #fdcb6e;
+    background-color: rgba(253, 203, 110, 0.1);
+}
+
+.field-status-info {
+    color: #74b9ff;
+    background-color: rgba(116, 185, 255, 0.1);
+}
+
+/* Update reduced motion support for field updater animations */
+@media (prefers-reduced-motion: reduce) {
+    .field-highlight,
+    .field-fade,
+    .field-slide,
+    .field-typing,
+    .field-color,
+    .version-updated {
+        animation: none !important;
+        transition: none !important;
+    }
+    
+    /* Provide subtle alternative for reduced motion */
+    .field-highlight,
+    .version-updated {
+        background-color: #fff3cd;
+        transition: background-color 0.1s ease;
+    }
+    
+    .field-content-container .field-typing {
+        border-right: none;
+    }
+}
+}
