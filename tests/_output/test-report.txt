@@ -1,0 +1,31 @@
+Codeception PHP Testing Framework v5.3.4 https://stand-with-ukraine.pp.ua
+
+[1mTests.acceptance Tests (6) [22m---------------------------------
+Modules: [32mWebDriver, Asserts[39m
+------------------------------------------------------------
+[32;1m✔[39;22m [35;1mHelloShortcodeCest:[39;22m Verify the [HELLO] shortcode renders HELLO WORLD on a page[32m (0.48s)[39m
+[32;1m✔[39;22m [35;1mHelloWorldCest:[39;22m See Hello World on the WordPress homepage[32m (0.37s)[39m
+[32;1m✔[39;22m [35;1mPluginFrontendCest:[39;22m Verify the WordPress homepage loads[32m (0.37s)[39m
+[32;1m✔[39;22m [35;1mPluginFrontendCest:[39;22m Log in to wp-admin[32m (2.02s)[39m
+[32;1m✔[39;22m [35;1mPluginFrontendCest:[39;22m Verify the plugin is listed and active[32m (2.65s)[39m
+[32;1m✔[39;22m [35;1mPluginFrontendCest:[39;22m Verify the Book CPT menu appears in wp-admin[32m (2.63s)[39m
+------------------------------------------------------------
+WordPress 6.9.1 loaded from /var/www/html
+
+[1mTests.wpunit Tests (8) [22m-------------------------------------
+Modules: [32mAsserts[39m
+------------------------------------------------------------
+[32;1m✔[39;22m [35;1mHelloShortcodeTest:[39;22m Hello shortcode is registered[32m (0.02s)[39m
+[32;1m✔[39;22m [35;1mHelloShortcodeTest:[39;22m Hello shortcode returns hello world[32m (0.00s)[39m
+[32;1m✔[39;22m [35;1mHelloShortcodeTest:[39;22m Hello shortcode renders via do shortcode[32m (0.00s)[39m
+[32;1m✔[39;22m [35;1mPluginActivationTest:[39;22m Plugin is active[32m (0.00s)[39m
+[32;1m✔[39;22m [35;1mPluginActivationTest:[39;22m Greet returns expected string[32m (0.00s)[39m
+[32;1m✔[39;22m [35;1mPluginActivationTest:[39;22m Greet with empty name[32m (0.00s)[39m
+[32;1m✔[39;22m [35;1mPluginActivationTest:[39;22m Book post type is registered[32m (0.00s)[39m
+[32;1m✔[39;22m [35;1mPluginActivationTest:[39;22m Can insert book post[32m (0.03s)[39m
+------------------------------------------------------------
+Time: 00:17.898, Memory: 44.50 MB
+
+[30;42mOK (14 tests, 17 assertions)[39;49m
+- [1mHTML[22m report generated in [33mfile:///home/user/wp-testing-container/tests/_output/report.html[39m
+- [1mJUNIT XML[22m report generated in [33mfile:///home/user/wp-testing-container/tests/_output/report.xml[39m

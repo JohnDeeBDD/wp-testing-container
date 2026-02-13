@@ -32,3 +32,13 @@ function my_plugin_register_book_cpt(): void {
     ] );
 }
 add_action( 'init', 'my_plugin_register_book_cpt' );
+
+/**
+ * Render the [HELLO] shortcode.
+ *
+ * @return string
+ */
+function my_plugin_hello_shortcode(): string {
+    return 'HELLO WORLD';
+}
+add_shortcode( 'HELLO', 'my_plugin_hello_shortcode' );
